@@ -58,6 +58,7 @@ function start(){
       }
     }
 
+    //----start rings
     if(h == 9 && m == 15){
       play_start();
     } else if(h == 10 && m == 10 ){
@@ -70,6 +71,8 @@ function start(){
       play_start();
     }else if(h == 14 && m == 20){
       play_start();
+
+      //-----Finish Rings
     } else if(h == 10 && m == 0 ){
       play_finish();
     }else if(h == 10 && m == 55 ){
@@ -82,6 +85,8 @@ function start(){
       play_finish();
     }else if(h == 15 && m == 5){
       play_finish();
+
+      //-----preStart rings
     }else if(h == 9 && m == 10){
       play_preStart();
     }else if(h == 10 && m == 5){
