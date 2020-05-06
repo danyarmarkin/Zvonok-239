@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Звонки 239</title>
+
+    <link rel="stylesheet" href="form.css">
+    <!-- <link rel="audio" href="finish239.mp3"> -->
+  </head>
+  <body>
+    <!-- <div class="div-time"> -->
+      <h2 id="time" class="text-time">время</h2>
+      <p class="text-time">Данные о времени взяты с вашего компьютера.</p>
+      <p class="text-time">Звонок прозвенит по расписанию.</p>
+      <p class="text-time">Звонок прозвенит ТОЛЬКО, если страница открыта.</p>
+      <p class="text-time">Звонок сработает ТОЛЬКО, если была нажата кнопка "Активировать звонки".</p>
+    <!-- </div> -->
+    <audio src="start239.mp3">
+        <!-- <source src="start239.mp3" type="audio/mpeg"> -->
+    </audio>
+    <audio src="finish239.mp3">
+
+    </audio>
+    <button type="button" name="button" onclick="start()" class="div-form" id="start_button">Активировать звонки</button>
+
+    <div class="div-form">
+      <h3>Настройки</h3>
+      <div class="div-setting">
+        <p>Звонки, которые включатся</p>
+        <p><input type="checkbox" id="startCh" checked> Начало урока</p>
+        <p><input type="checkbox" id="finishCh" checked> Конец урока</p>
+        <p><input type="checkbox" id="prestartCh" checked> Предупредительный</p>
+      </div>
+      <div class="div-setting">
+        <p>Громкость звонка</p>
+        <input type="range" oninput="update_vol()"  value="50" id="volume" class="bar">
+        <p></p>
+        <label id="setVol">Громкость</label> <input type="text" class="vol-input" value="50" id="input_vol" oninput="update_vol_by_text()"><label> %</label>
+      </div>
+      <button type="button" name="button" onclick="play_test()" class="div-form" id="start_button">Проверить звук</button>
+    </div>
+    <div class="div-form">
+      <h3>Расписание звонков</h3>
+      <p>1 урок: 9:15 - 10:00</p>
+      <p>2 урок: 10:10 - 10:55</p>
+      <p>3 урок: 11:10 - 11:55</p>
+      <p>4 урок: 12:10 - 12:55</p>
+      <p>5 урок: 13:25 - 14:10</p>
+      <p>6 урок: 14:20 - 15:05</p>
+    </div>
+    <!-- <button type="button" name="button" onblur="start()">df</button> -->
+    <script src="code.js"></script>
+  </body>
+</html>
