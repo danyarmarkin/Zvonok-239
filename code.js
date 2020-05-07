@@ -3,6 +3,8 @@ function start(){
   document.getElementById('start_button').disabled = 'true';
   document.getElementById('start_button').hidden = 'true';
 
+  document.getElementById('indicator').innerHTML = 'Звонки активированы'
+
   var dots = true;
   var if_ring = false;
   var audio_start = new Audio();
@@ -25,12 +27,24 @@ function start(){
   var vol_bar = document.getElementById('volume');
   var vol_input = document.getElementById('input_vol');
 
+
+
   function ring(){
 
     var today = new Date();
     var h = today.getUTCHours() +3;
     var m = today.getUTCMinutes();
     var s = today.getUTCSeconds();
+
+    if(h == 24){
+      h = 0;
+    }
+    if(h == 25){
+      h = 1;
+    }
+    if(h == 26){
+      h = 2;
+    }
 
     if(start_checkbox.checked){ start_ring = true} else {start_ring = false}
     if(finish_checkbox.checked){ finish_ring = true} else {finish_ring = false}
@@ -103,17 +117,17 @@ function start(){
     else{
       if_ring = false;
     }
-    if(s<10) s= '0'+s;
-    if(m<10) m= '0'+m;
-    if(h<10) h= '0'+h;
+    // if(s<10) s= '0'+s;
+    // if(m<10) m= '0'+m;
+    // if(h<10) h= '0'+h;
 
-    if(dots == true){
-      watch.innerHTML = 'Сейчас '+h+':'+m+':'+s;
-      dots = false;
-    }else{
-      watch.innerHTML = 'Сейчас '+h+':'+m+':'+s;
-      dots = true;
-    }
+    // if(dots == true){
+    //   watch.innerHTML = 'Сейчас '+h+':'+m+':'+s;
+    //   dots = false;
+    // }else{
+    //   watch.innerHTML = 'Сейчас '+h+':'+m+':'+s;
+    //   dots = true;
+    // }
 
   }
 
@@ -161,4 +175,31 @@ function play_test(){
     test = false;
   }
 
+}
+function watch(){
+  var watch = document.getElementById('time');
+  function time(){
+    var today = new Date();
+    var h = today.getUTCHours() +3;
+    var m = today.getUTCMinutes();
+    var s = today.getUTCSeconds();
+
+    if(h == 24){
+      h = 0;
+    }
+    if(h == 25){
+      h = 1;
+    }
+    if(h == 26){
+      h = 2;
+    }
+
+    if(s<10) s= '0'+s;
+    if(m<10) m= '0'+m;
+    if(h<10) h= '0'+h;
+
+    watch.innerHTML = 'Сейчас '+h+':'+m+':'+s;
+  }
+  time();
+  setInterval(time, 1000);
 }
